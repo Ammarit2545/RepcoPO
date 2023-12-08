@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            padding: 25px;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+        }
+
+        .dark-mode {
+            background-color: black;
+        }
+
+        .dark-mode-font {
+            color: white;
+        }
+
+        .dark-mode-box {
+            border: 2px solid white;
+        }
+
+        .dark-mode-p {
+            color: red; /* Add your styles for the dark mode p element */
+        }
+
+        .dark-mode-p1 {
+            background-color: blue; /* Add your styles for the dark mode p element */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Toggle Dark/Light Modes</h2>
+    </nav>
+
+    <p>Click the button to toggle between dark and light mode for this page.</p>
+
+    <button onclick="ScreenMode()">Toggle dark mode</button>
+
+    <script>
+        function ScreenMode() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+            element.classList.toggle("dark-mode-font");
+            element.classList.toggle("dark-mode-box");
+
+            // Add class to specific
+            var pElements = document.getElementsByTagName("p");
+            for (var i = 0; i < pElements.length; i++) {
+                // Insert Another Class
+                pElements[i].classList.toggle("dark-mode-p");
+                pElements[i].classList.toggle("dark-mode-p1");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

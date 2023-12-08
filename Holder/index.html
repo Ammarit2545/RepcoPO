@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="image/icon/repco-icon.jpg" type="image/x-icon">
+    <title>REPCO NEX INDUSTIAL SOLUTIONS - SOLAR BUISINESS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+
+            /* Hide overflow to prevent scrolling during loading */
+        }
+
+        .loading-screen {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            /* Add transition for fade-out effect */
+        }
+
+        .loaded .loading-screen {
+            opacity: 0;
+            pointer-events: none;
+            /* Disable pointer events on the loading screen when fully loaded */
+        }
+
+        nav {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: -70px;
+            /* Initially set top to hide the navbar */
+            z-index: 1000;
+            border-bottom: 1px solid rgb(97, 97, 97);
+            transition: top 0.5s ease;
+            /* Add transition for smooth slide-in effect */
+        }
+
+        nav.show {
+            top: 0;
+            /* Display the navbar when the 'show' class is added */
+        }
+
+        nav a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            /* Add transform transition */
+            position: relative;
+            transform: translateY(20px);
+            /* Initial transform to hide the links */
+        }
+
+        nav a:hover {
+            border-radius: 20px;
+            background-color: #3673FD;
+            color: white;
+            transform: scale(1.1) translateY(0);
+            /* Apply transform on hover */
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            display: none;
+            background-color: #333;
+            width: 200px;
+        }
+
+        nav li {
+            display: block;
+        }
+
+        nav li a {
+            padding: 10px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        nav li a:hover {
+            background-color: #555;
+        }
+
+        nav a:hover+ul,
+        nav ul:hover {
+            display: block;
+        }
+
+        @keyframes {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav a {
+            border-radius: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .carousel-container {
+            margin-top: 80px;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            margin-right: 20px;
+        }
+
+        .full-screen {
+            display: block;
+        }
+
+        .less-screen {
+            display: none;
+        }
+
+
+
+        /* 
+        @media only screen and (max-width: 817px) {
+            .full-screen {
+                display: none;
+            }
+
+            .less-screen {
+                display: block;
+            }
+        } */
+        nav.scrolled {
+            background: linear-gradient(to bottom, rgb(22, 22, 22) 100%, rgba(109, 109, 109, 0));
+            color: black;
+            /* Change background color when scrolled */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Add box shadow for a subtle effect */
+            transition: background 0.3s, color 0.3s;
+            /* Add transition for a smooth effect */
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Your existing script...
+
+            // Add scroll event listener to change navbar background color
+            window.addEventListener('scroll', function () {
+                var navbar = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Add 'loaded' class to body after the page is fully loaded
+            document.body.classList.add('loaded');
+            // Add 'show' class to the navbar after the page is loaded
+            document.querySelector('nav').classList.add('show');
+
+            // Apply animation to links after the page is loaded
+            var links = document.querySelectorAll('nav a');
+            links.forEach(function (link) {
+                link.style.transitionDelay = link.style.transitionDelay ? '' : '0s';
+                link.style.transform = 'translateY(0)';
+            });
+
+            // Remove loading screen after the page is fully loaded
+            setTimeout(function () {
+                document.body.classList.remove('loading');
+            }, 500); // Adjust the delay as needed
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"
+        style=" background-color: #1c3c86;">
+        <div class="offcanvas-header">
+            <h1 id="offcanvasTopLabel" style="color:white">Contact As</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading-screen"
+        style=" width: 100%; height: 110vh; background-color: #1c3c86; display: flex; justify-content: center; align-items: center;">
+
+        <!-- Loading spinner or message can be added here -->
+        <center>
+            <img src="image/Logo/REPCO-icon.png" alt="" width="20%">
+            <br>
+            <br>
+            <div class="spinner-border text-light" role="status" style="font-size: 100%">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </center>
+    </div>
+    <div class="full-screen">
+        <nav>
+            <div class="left-section">
+                <img src="image/logo/REPCO-icon.png" alt="" width="270px">
+            </div>
+            <div class="right-section">
+                <a href="#" class="nav-item">ABOUT REPCO NEX</a>
+                <a href="#" class="nav-item">SOLAR BUSINESS</a>
+                <a href="#" class="nav-item"> SERVICES AND SOLUTIONS </a>
+                <a href="#" class="nav-item">NEWS</a>
+                <a href="#" class="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                    aria-controls="offcanvasTop">CONTACT US</a>
+                <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+                    aria-controls="offcanvasTop">Toggle top offcanvas</button> -->
+
+                <a href="#" class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                        class="fa fa-search"></i></a>
+            </div>
+        </nav>
+    </div>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"
+        style=" width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="image/main_test.jpg" class="d-block w-100" alt="...">
+                <!-- <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div> -->
+            </div>
+            <div class="carousel-item">
+                <img src="image/main_test.jpg" class="d-block w-100" alt="...">
+                <!-- <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div> -->
+            </div>
+            <div class="carousel-item">
+                <img src="image/main_test.jpg" class="d-block w-100" alt="...">
+                <!-- <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
+                </div> -->
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <script>
+        // Additional script to handle page loading after images are fully loaded
+        window.addEventListener('load', function () {
+            document.body.classList.remove('loading');
+        });
+    </script>
+
+    <div>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+        <h1>sdfsdfsdfsdf</h1>
+
+    </div>
+</body>
+
+</html>
